@@ -45,7 +45,7 @@ def create_client_view(request, *args, **kwargs):
 
 
 def sign_in_view(request, *args, **kwargs):
-    sign_in_status = False
+    request.session["sign_in_status"] = False
     if request.user.is_authenticated:
         request.session["sign_in_status"] = True
         return redirect("home")

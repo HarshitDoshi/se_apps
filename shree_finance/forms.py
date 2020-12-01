@@ -13,7 +13,7 @@ class SignInForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Enter username",
-                "type": "type",
+                "type": "text",
                 "id": "username-input",
                 "name": "username",
                 "class": "username-field form-control",

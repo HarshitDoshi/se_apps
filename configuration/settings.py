@@ -40,8 +40,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
     "crispy_forms",
     "phonenumber_field",
+    "authenticationapp",
+    "notesapp",
     "shree_finance",
 ]
 
@@ -56,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "configuration.urls"
+
+SITE_ID = 1
 
 TEMPLATES = [
     {
@@ -73,6 +81,13 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 WSGI_APPLICATION = "configuration.wsgi.application"
@@ -130,3 +145,13 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "node_modules",
 ]
+
+# Django-AllAuth Settings
+
+LOGIN_REDIRECT_URL = "notesapp:home"
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_MAX_EMAIL_ADDRESSES = 2
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
