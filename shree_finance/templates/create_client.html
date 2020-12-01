@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+    <div class="container">
+        <form enctype="multipart/form-data" action="" method="POST">
+            {% csrf_token %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+            <div class="container py-3">
+                <label for="first_name-input" class="form-label">First name</label>
+                {{ client_form.first_name }}
+            </div>
+            <div class="container py-3">
+                <label for="middle_name-input" class="form-label">Middle name</label>
+                {{ client_form.middle_name }}
+            </div>
+            <div class="container py-3">
+                <label for="last_name-input" class="form-label">Last name</label>
+                {{ client_form.last_name }}
+            </div>
+            <div class="container py-3">
+                <label for="phone_number-input" class="form-label">Phone number</label>
+                {{ client_form.phone_number }}
+            </div>
+            <button type="submit" class="container py-3 btn btn-primary">Create</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

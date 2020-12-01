@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+    <form enctype="multipart/form-data" action="" method="POST">
+        {% csrf_token %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        <div class="mb-3">
+            <label for="username-input" class="form-label">Username</label>
+            {{ form.username }}
+        </div>
+        <div class="mb-3">
+            <label for="password-input" class="form-label">Password</label>
+            {{ form.password }}
+        </div>
+        <button type="submit" class="btn btn-primary">Sign-In</button>
+    </form>
+</section>
+{% endblock %}
