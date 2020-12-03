@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .senotesapp-markdown-item h1 {
+    @apply text-2xl font-serif font-bold;
+  }
+
+  .senotesapp-markdown-item h2 {
+    @apply text-xl font-serif font-bold;
+  }
+
+  .senotesapp-markdown-item h3 {
+    @apply text-lg font-serif font-bold;
+  }
+
+  .senotesapp-markdown-item h4 {
+    @apply text-base font-serif font-bold;
+  }
+
+  .senotesapp-markdown-item h5 {
+    @apply text-sm font-serif font-bold;
+  }
+
+  .senotesapp-markdown-item h6 {
+    @apply text-xs font-serif font-bold;
+  }
+
+  .senotesapp-markdown-item ul {
+    @apply list-disc font-serif;
+  }
+
+  .senotesapp-markdown-item ol {
+    @apply list-decimal font-serif;
+  }
+
+  .senotesapp-markdown-item em {
+    @apply italic;
+  }
+
+  .senotesapp-markdown-item strong {
+    @apply font-bold;
+  }
+
+  .senotesapp-markdown-item a {
+    @apply font-sans;
+  }
+
+  .senotesapp-markdown-item p {
+    @apply font-serif;
+  }
+
+  .senotesapp-markdown-item code {
+    @apply font-mono overflow-ellipsis;
+  }
+
+  .senotesapp-markdown-item pre {
+    @apply font-mono overflow-ellipsis;
+  }
+}
