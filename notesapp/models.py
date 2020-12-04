@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 import uuid
 
 
 class Note(models.Model):
+    note_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True,)
     note_id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,

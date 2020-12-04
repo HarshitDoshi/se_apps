@@ -58,7 +58,7 @@ class NoteForm(forms.ModelForm):
                 "type": "text",
                 "id": "note_title-input",
                 "name": "Title",
-                "class": "note_title-field form-control",
+                "class": "note_title-field w-full bg-white rounded border border-gray-300 focus:border-teal-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out",
             }
         ),
     )
@@ -72,7 +72,20 @@ class NoteForm(forms.ModelForm):
                 "type": "text",
                 "id": "note_content-input",
                 "name": "Content",
-                "class": "note_content-field form-control",
+                "class": "note_content-field w-full bg-white rounded border border-gray-300 focus:border-teal-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out",
+            }
+        ),
+    )
+
+    note_is_archived = forms.BooleanField(
+        label="Archive",
+        required=False,
+        widget=forms.CheckboxInput(
+            attrs={
+                "id": "note_is_archived-input",
+                "type": "checkbox",
+                "name": "Archive",
+                "class": "note_is_archived-field w-4 bg-white border text-gray-700 focus:border-teal-500 border-gray-300 text-base outline-none rounded py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out",
             }
         ),
     )
@@ -80,6 +93,7 @@ class NoteForm(forms.ModelForm):
     field_order = [
         "note_title",
         "note_content",
+        "note_is_archived",
     ]
 
     class Meta:
@@ -87,4 +101,5 @@ class NoteForm(forms.ModelForm):
         fields = {
             "note_title",
             "note_content",
+            "note_is_archived",
         }
