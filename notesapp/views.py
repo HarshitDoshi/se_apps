@@ -2,8 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from rest_framework import viewsets
+from .serializers import NoteSerializer
 from .models import Note
 from .forms import NoteForm, SignInForm
+
+
+class NoteView(viewsets.ModelViewSet):
+    serializer_class = NoteSerializer
+    queryset = Note.objects.all()
 
 
 def index_view(request, *args, **kwargs):
